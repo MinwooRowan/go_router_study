@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:go_router_study/layout/default_layout.dart';
 import 'package:go_router_study/provider/auth_provider.dart';
+import 'package:go_router_study/screen/10_indexed_stack_bottom_screen.dart';
 import 'package:go_router_study/screen/1_go_screen.dart';
 import 'package:go_router_study/screen/2_go_named_screen.dart';
 import 'package:go_router_study/screen/3_pushed_screen.dart';
@@ -66,16 +67,23 @@ class HomeScreen extends HookConsumerWidget {
             },
             child: const Text('Go Nested'),
           ),
-          TextButton(
-              onPressed: () {
-                ref.read(authProvider.notifier).login();
-              },
-              child: Text('Login')),
           ElevatedButton(
             onPressed: () {
               context.goNamed(RedirectScreen.route);
             },
             child: const Text('Go Redirect Screen'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              context.goNamed(IndexedStackScreen.route);
+            },
+            child: const Text('Go Indexed Stack Screen'),
+          ),
+          TextButton(
+            onPressed: () {
+              ref.read(authProvider.notifier).login();
+            },
+            child: const Text('Login'),
           ),
         ],
       ),

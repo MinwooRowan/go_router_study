@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:go_router_study/provider/auth_notifier.dart';
 import 'package:go_router_study/provider/auth_provider.dart';
 import 'package:go_router_study/screen/0_error_screen.dart';
+import 'package:go_router_study/screen/10_indexed_stack_bottom_screen.dart';
 import 'package:go_router_study/screen/1_go_screen.dart';
 import 'package:go_router_study/screen/2_go_named_screen.dart';
 import 'package:go_router_study/screen/3_pushed_screen.dart';
@@ -48,6 +49,7 @@ GoRouter router(RouterRef ref) {
           GoRoute(
             path: '${GoScreen.route}/home2',
             name: '${GoScreen.route}/home2',
+            redirect: (context, state) {},
             builder: (context, state) {
               return const HomeScreen();
             },
@@ -120,6 +122,13 @@ GoRouter router(RouterRef ref) {
             name: RedirectScreen.route,
             builder: (context, state) {
               return const RedirectScreen();
+            },
+          ),
+          GoRoute(
+            path: IndexedStackScreen.route,
+            name: IndexedStackScreen.route,
+            builder: (context, state) {
+              return const IndexedStackScreen();
             },
           ),
         ],
